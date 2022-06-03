@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'helpcontrol-selectel-folder',
+  selector: 'hc-selectel-folder',
   templateUrl: './folder.page.html',
   styleUrls: ['./folder.page.scss'],
 })

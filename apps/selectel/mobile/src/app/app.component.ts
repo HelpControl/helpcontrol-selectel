@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 @Component({
-  selector: 'helpcontrol-selectel-root',
+  selector: 'hc-selectel-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
