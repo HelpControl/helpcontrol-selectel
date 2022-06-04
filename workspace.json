@@ -1,6 +1,102 @@
 {
   "version": 2,
   "projects": {
+    "account-data-access": {
+      "root": "libs/account/data-access",
+      "sourceRoot": "libs/account/data-access/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "options": {
+            "lintFilePatterns": [
+              "libs/account/data-access/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/account/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/account/data-access/jest.config.ts",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": [
+        "type:data",
+        "scope:account"
+      ]
+    },
+    "account-domain": {
+      "root": "libs/account/domain",
+      "sourceRoot": "libs/account/domain/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "options": {
+            "lintFilePatterns": [
+              "libs/account/domain/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/account/domain"
+          ],
+          "options": {
+            "jestConfig": "libs/account/domain/jest.config.ts",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": [
+        "type:domain",
+        "scope:account"
+      ]
+    },
+    "account-presentation": {
+      "root": "libs/account/presentation",
+      "sourceRoot": "libs/account/presentation/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "options": {
+            "lintFilePatterns": [
+              "libs/account/presentation/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/account/presentation"
+          ],
+          "options": {
+            "jestConfig": "libs/account/presentation/jest.config.ts",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": [
+        "type:presentation",
+        "scope:account"
+      ]
+    },
     "selectel-mobile": {
       "projectType": "application",
       "root": "apps/selectel/mobile",
