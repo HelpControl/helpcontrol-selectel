@@ -27,6 +27,7 @@
     "@nrwl/jest": "13.10.5",
     "@nrwl/linter": "13.10.5",
     "@nrwl/workspace": "14.1.9",
+    "@nx-clean/plugin-core": "^1.7.0",
     "@nxtend/capacitor": "^13.0.0",
     "@nxtend/ionic-angular": "^13.1.0",
     "@types/jest": "27.0.2",
