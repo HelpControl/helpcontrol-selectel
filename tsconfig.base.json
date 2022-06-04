@@ -16,13 +16,13 @@
     "baseUrl": ".",
     "paths": {
       "@helpcontrol/selectel/account/data-access": [
-        "libs/account/data-access/src/index.ts"
+        "libs/selectel/account/data-access/src/index.ts"
       ],
       "@helpcontrol/selectel/account/domain": [
-        "libs/account/domain/src/index.ts"
+        "libs/selectel/account/domain/src/index.ts"
       ],
       "@helpcontrol/selectel/account/presentation": [
-        "libs/account/presentation/src/index.ts"
+        "libs/selectel/account/presentation/src/index.ts"
       ]
     }
   },
