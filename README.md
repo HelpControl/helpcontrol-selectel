@@ -1,5 +1,3 @@
-
-
 # HelpcontrolSelectel
 
 This project was generated using [Nx](https://nx.dev).
@@ -79,8 +77,6 @@ Run `nx graph` to see a diagram of the dependencies of your projects.
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
 
-
-
 ## ☁ Nx Cloud
 
 ### Distributed Computation Caching & Distributed Task Execution
@@ -92,3 +88,23 @@ Nx Cloud pairs with Nx in order to enable you to build and test code more rapidl
 Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
 
 Visit [Nx Cloud](https://nx.app/) to learn more.
+
+## Generation clean architecture
+
+```bash
+$npx nx g @nx-clean/plugin-core:domain --name=domain --entity=account --directory=selectel/account --repository --usecases --tags=type:domain,scope:account -d
+```
+
+```bash
+$nx generate @nx-clean/plugin-core:data --name=data-access --domain=account-domain --entity=account --directory=selectel/account --inmemory --tags=type:data,scope:account -d
+```
+
+```bash
+$nx generate @nx-clean/plugin-core:presentation --name=presentation --domain=account-domain --entity=account --directory=selectel/account --data=account-data-access --tags=type:presentation,scope:account -d
+```
+
+### Добавление станицы Account
+
+```bash
+$npx nx generate @nxtend/ionic-angular:page account --project=selectel/mobile --no-interactive --dry-run
+```
