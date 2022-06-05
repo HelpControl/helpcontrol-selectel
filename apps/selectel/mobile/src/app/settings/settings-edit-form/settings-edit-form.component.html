@@ -1,0 +1,21 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Параметры подключения </ion-card-title>
+    <ion-card-subtitle>необходимые для взаимодействия по API</ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+    <form [formGroup]="formGroup"
+      (ngSubmit)="onSubmit($event)">
+      <formly-form [form]="formGroup"
+        [fields]="fields"
+        [model]="model"></formly-form>
+    </form>
+  </ion-card-content>
+  <ion-item>
+    <ion-button color="primary"
+      expand="block"
+      size="default"
+      slot="end"
+      (click)="onSubmit($event)">Сохранит</ion-button>
+  </ion-item>
+</ion-card>
