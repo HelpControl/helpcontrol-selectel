@@ -13,6 +13,11 @@ const routes: Routes = [
       import('./folder/folder.module').then((m) => m.FolderPageModule),
   },
   {
+    path: 'settings',
+    loadChildren: () =>
+      import('./settings/settings.module').then((m) => m.SettingsPageModule),
+  },
+  {
     path: 'account',
     loadChildren: () =>
       import('./account/account.module').then((m) => m.AccountPageModule),
@@ -21,7 +26,9 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules,
+    }),
   ],
   exports: [RouterModule],
 })
