@@ -77,19 +77,35 @@ Run `nx graph` to see a diagram of the dependencies of your projects.
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
 
-## ☁ Nx Cloud
+## Architecture Applications
 
-### Distributed Computation Caching & Distributed Task Execution
+### UI
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
+- formly
 
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
+```bash
+$npm install @angular/forms @ngx-formly/core @ngx-formly/ionic -S
+```
 
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
+- shared
 
-Visit [Nx Cloud](https://nx.app/) to learn more.
+```
+npx nx generate @schematics/angular:module Shared --project=selectel-mobile --flat --path=apps/selectel/mobile/src/app/shared --no-interactive --dry-run
+```
 
-## Generation clean architecture
+```bash
+npx nx generate @schematics/angular:module Core --project=selectel-mobile --flat --path=apps/selectel/mobile/src/app/@core --no-interactive --dry-run
+```
+
+#### Settings page
+
+```bash
+npx nx generate @nrwl/angular:component SettingsEditForm --project=selectel-mobile --module=settings.module.ts --changeDetection=OnPush --path=apps/selectel/mobile/src/app/settings/components --no-interactive --dry-run
+```
+
+- ![The Claen Architecture](./docs/img/clean_architecture_ucnle_bob.jpeg)
+
+## Implementation Clean Architecture
 
 ```bash
 $npx nx g @nx-clean/plugin-core:domain --name=domain --entity=account --directory=selectel/account --repository --usecases --tags=type:domain,scope:account -d
@@ -100,11 +116,41 @@ $nx generate @nx-clean/plugin-core:data --name=data-access --domain=account-doma
 ```
 
 ```bash
-$nx generate @nx-clean/plugin-core:presentation --name=presentation --domain=account-domain --entity=account --directory=selectel/account --data=account-data-access --tags=type:presentation,scope:account -d
+$npx nx generate @nx-clean/plugin-core:presentation --name=presentation --domain=account-domain --entity=account --directory=selectel/account --data=account-data-access --tags=type:presentation,scope:account -d
 ```
 
-### Добавление станицы Account
+#### Авторизация
+
+- генерация страници авторизации - регистрации токена доступа к API
+
+```bash
+$npx nx generate @nxtend/ionic-angular:page signin --project=selectel/mobile --no-interactive --dry-run
+```
+
+#### Добавление станицы Account
 
 ```bash
 $npx nx generate @nxtend/ionic-angular:page account --project=selectel/mobile --no-interactive --dry-run
+```
+
+#### Информация по аккаунту
+
+- компонент отображения баланса
+
+```bash
+$npx nx generate @schematics/angular:component account-balance-card --project=selectel-mobile --module=account.module --style=scss --changeDetection=OnPush --displayBlock --path=apps/selectel/mobile/src/app/account/components --prefix=hc-selectel --no-interactive
+```
+
+## Отображение баланса
+
+- добавление описания доменной сущности
+
+```bash
+$npx nx generate @schematics/angular:class balance --project=selectel-account-domain --path=libs/selectel/account/domain/src/lib/entity --type=entity --no-interactive --dry-run
+```
+
+- компонент отображения баланса
+
+```bash
+$npx nx generate @schematics/angular:component account-balance-card --project=selectel-mobile --module=account.module --style=scss --changeDetection=OnPush --displayBlock --path=apps/selectel/mobile/src/app/account/components --prefix=hc-selectel --no-interactive
 ```
