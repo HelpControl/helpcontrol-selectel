@@ -78,7 +78,10 @@
               "browserTarget": "selectel-mobile:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "proxyConfig": "apps/selectel/mobile/proxy.conf.json"
+          }
         },
         "extract-i18n": {
           "executor": "@angular-devkit/build-angular:extract-i18n",
@@ -233,6 +236,71 @@
       "tags": [],
       "implicitDependencies": [
         "selectel-mobile"
+      ]
+    },
+    "selectel-reverse-proxy-api": {
+      "root": "apps/selectel/reverse-proxy-api",
+      "sourceRoot": "apps/selectel/reverse-proxy-api/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:webpack",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/selectel/reverse-proxy-api",
+            "main": "apps/selectel/reverse-proxy-api/src/main.js",
+            "tsConfig": "apps/selectel/reverse-proxy-api/tsconfig.app.json",
+            "assets": [
+              "apps/selectel/reverse-proxy-api/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/selectel/reverse-proxy-api/src/environments/environment.js",
+                  "with": "apps/selectel/reverse-proxy-api/src/environments/environment.prod.js"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:node",
+          "options": {
+            "buildTarget": "selectel-reverse-proxy-api:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "options": {
+            "lintFilePatterns": [
+              "apps/selectel/reverse-proxy-api/**/*.js"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/selectel/reverse-proxy-api"
+          ],
+          "options": {
+            "jestConfig": "apps/selectel/reverse-proxy-api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": [
+        "type:api",
+        "scope:proxy"
       ]
     }
   }
