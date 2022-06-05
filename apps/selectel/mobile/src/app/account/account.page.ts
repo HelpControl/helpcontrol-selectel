@@ -1,12 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, inject, OnInit } from '@angular/core';
+import { AccountPresenter } from '@helpcontrol/selectel/account/presentation';
+import { AccountDataService } from './services/account-data.service';
 
 @Component({
-  selector: 'helpcontrol-selectel-account',
   templateUrl: './account.page.html',
   styleUrls: ['./account.page.scss'],
 })
 export class AccountPage implements OnInit {
-  constructor() {}
+  // accountRepo: AccountDataService = inject(AccountDataService);
+  account$ = this.accountRepo.getAccount();
+  // balance: Balamc
+  // accounts$ = this.accountPresenter.accounts$;
+  // constructor(private accountPresenter: AccountPresenter) {}
+  constructor(@Inject(AccountDataService) private accountRepo: AccountDataService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    // this.accountPresenter.getAllAccounts();
+  }
 }

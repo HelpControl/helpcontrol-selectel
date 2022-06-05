@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {AccountPresenter} from '@helpcontrol/selectel/account/presentation';
 import { IonicModule } from '@ionic/angular';
 
 import { AccountPage } from './account.page';
@@ -11,6 +12,7 @@ describe('AccountPage', () => {
     TestBed.configureTestingModule({
       declarations: [AccountPage],
       imports: [IonicModule.forRoot()],
+      providers:[{provide: AccountPresenter, useFactory: ()=>{}}]
     }).compileComponents();
 
     fixture = TestBed.createComponent(AccountPage);
