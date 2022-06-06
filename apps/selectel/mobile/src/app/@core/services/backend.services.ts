@@ -8,7 +8,7 @@ import { Observable, tap } from 'rxjs';
 export class BackendService {
   private http: HttpClient = inject(HttpClient);
   // private apiEndpointUrl = 'https://api.vscale.io/v1';
-  private apiEndpointUrl = 'https://vscale.knigaexpert.ru/v1';
+  private apiEndpointUrl = '/v1';
   private token = null;
 
   constructor() {}
