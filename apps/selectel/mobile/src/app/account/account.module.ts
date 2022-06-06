@@ -13,13 +13,10 @@ import {
   AccountInMemoryRepository,
   AccountMockDto,
 } from '@helpcontrol/selectel/account/data-access';
-import {
-  AccountDefaultPresenter,
-  AccountPresenter,
-} from '@helpcontrol/selectel/account/presentation';
 import { AccountDataService } from './services/account-data.service';
 import { SharedModule } from '../shared/shared.module';
-import {DataProvidersModule} from '../@data-providers/data-providers.module';
+import { DataProvidersModule } from '../@data-providers/data-providers.module';
+import { AccountInfoCardComponent } from './components/account-info-card/account-info-card.component';
 
 @NgModule({
   imports: [
@@ -31,25 +28,11 @@ import {DataProvidersModule} from '../@data-providers/data-providers.module';
     AccountPageRoutingModule,
     DataProvidersModule,
   ],
-  declarations: [AccountPage, AccountBalanceCardComponent],
-  providers: [
-    AccountDataService,
-    {
-      provide: AccountRepository,
-      useFactory: () =>
-        new AccountInMemoryRepository([
-          {
-            id: '1',
-            title: 'Gerzhan',
-          },
-        ]),
-    },
-    {
-      provide: AccountPresenter,
-      useFactory: (repo: AccountRepository) =>
-        new AccountDefaultPresenter(repo),
-      deps: [AccountRepository],
-    },
+  declarations: [
+    AccountPage,
+    AccountBalanceCardComponent,
+    AccountInfoCardComponent,
   ],
+  providers: [AccountDataService],
 })
 export class AccountPageModule {}

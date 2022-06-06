@@ -1,23 +1,35 @@
-import { Inject, inject, Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { map, Observable, of } from 'rxjs';
-import { BackendService } from '../../@core/services/backend.services';
-import {AccountPageModule} from '../account.module';
+import { BackendService } from '../../@data-providers/backend.services';
+import { Account } from '../models/account.model';
+import { CurrentBalance } from '../models/current-balance.model';
 
-@Injectable(
-  {
+@Injectable({
   providedIn: 'root',
-}
-)
+})
 export class AccountDataService {
-  backend: BackendService = inject(BackendService);
-  // constructor( private backend: BackendService){}
-  getAccount(): Observable<any> {
-    return this.backend.query('/account', {}).pipe(
-      map((dto) => {
-        const { email } = dto.info;
-        return { email };
+  // backend: BackendService = inject(BackendService);
+  constructor(@Inject(BackendService) private backend: BackendService) {}
+
+  /**
+   * Метод запроса данных об Аккаунте
+   * @returns
+   */
+  getAccount(): Observable<Account> {
+    return this.backend
+      .query('/account', {})
+      .pipe(map((dto) => new Account(dto.info)));
+  }
+
+  /**
+   * Метод запроса данных текущего баланса
+   * @returns
+   */
+  getCurrentBalance(): Observable<CurrentBalance | null> {
+    return this.backend.query('/billing/balance').pipe(
+      map((data) => {
+        return new CurrentBalance({ ...data });
       })
     );
-    return of('')
   }
 }

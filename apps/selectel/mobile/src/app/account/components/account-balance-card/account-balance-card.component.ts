@@ -1,9 +1,11 @@
 import {
   Component,
-  OnInit,
   ChangeDetectionStrategy,
   Input,
+  OnChanges,
+  SimpleChanges,
 } from '@angular/core';
+import { CurrentBalance } from '../../models/current-balance.model';
 
 @Component({
   selector: 'hc-selectel-account-balance-card',
@@ -11,9 +13,16 @@ import {
   styleUrls: ['./account-balance-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AccountBalanceCardComponent implements OnInit {
-  @Input() balance: any;
-  constructor() {}
+export class AccountBalanceCardComponent implements OnChanges {
+  @Input() balance: CurrentBalance | null = null;
 
-  ngOnInit(): void {}
+  value = '0';
+  bonus = '0';
+
+  ngOnChanges({ balance }: SimpleChanges): void {
+    if (balance) {
+      this.value = `${(this.balance?.balance ?? 0) / 100} руб.`;
+      this.bonus = `${(this.balance?.bonus ?? 0) / 100} руб.`;
+    }
+  }
 }
