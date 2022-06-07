@@ -1,0 +1,11 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "mobile",
+	"webDir": "../../../dist/apps/selectel/mobile",
+	"bundledWebRuntime": true,
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}
