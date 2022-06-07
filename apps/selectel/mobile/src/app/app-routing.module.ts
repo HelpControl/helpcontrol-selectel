@@ -22,6 +22,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./account/account.module').then((m) => m.AccountPageModule),
   },
+  {
+    path: 'servers',
+    loadChildren: () =>
+      import('./servers/servers.module').then((m) => m.ServersPageModule),
+  },
 ];
 
 @NgModule({

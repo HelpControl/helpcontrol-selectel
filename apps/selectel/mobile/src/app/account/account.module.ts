@@ -24,7 +24,6 @@ import { AccountInfoCardComponent } from './components/account-info-card/account
     SharedModule,
     IonicModule,
     FormsModule,
-    IonicModule,
     AccountPageRoutingModule,
     DataProvidersModule,
   ],
