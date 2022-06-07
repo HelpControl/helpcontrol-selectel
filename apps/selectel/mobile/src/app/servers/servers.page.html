@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Сервера</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let item of servers$ | async">
+    <ion-card button
+      (tap)="onServerDetails($event, item)"
+      (click)="onServerDetails($event, item)">
+      <hc-selectel-server-card-list-item [server]="item"></hc-selectel-server-card-list-item>
+    </ion-card>
+    <!-- TODO: add  -->
+    <!-- <ion-item>
+      <ion-button slot="end"
+        color="primary"
+        (click)="onAddServer()">
+        <ion-icon name="add"> </ion-icon>
+        Добавить
+      </ion-button>
+    </ion-item> -->
+  </ion-list>
+</ion-content>

@@ -14,7 +14,17 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@helpcontrol/selectel/account/data-access": [
+        "libs/selectel/account/data-access/src/index.ts"
+      ],
+      "@helpcontrol/selectel/account/domain": [
+        "libs/selectel/account/domain/src/index.ts"
+      ],
+      "@helpcontrol/selectel/account/presentation": [
+        "libs/selectel/account/presentation/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

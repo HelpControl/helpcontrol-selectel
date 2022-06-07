@@ -1,0 +1,10 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <hc-selectel-account-info-card [account]="account$| async"></hc-selectel-account-info-card>
+  <hc-selectel-account-balance-card [balance]="balance$ | async"></hc-selectel-account-balance-card>
+</ion-content>
