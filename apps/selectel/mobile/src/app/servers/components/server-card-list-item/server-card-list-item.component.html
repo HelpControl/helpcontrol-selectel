@@ -8,26 +8,13 @@
     <ion-card-subtitle>
       <p>{{address}}</p>
     </ion-card-subtitle>
-
   </ion-card-header>
   <ion-card-content>
-    <ion-chip color="primary"
+    <ion-chip *ngFor="let item of tags"
+      color="primary"
       mode="ios"
       outline="true">
-      <ion-label>Default</ion-label>
+      <ion-label>{{item.name}}</ion-label>
     </ion-chip>
   </ion-card-content>
 </ion-card>
-
-<!-- <ion-avatar item-start>
-    <ion-icon name="power"
-      [color]="statusColor"></ion-icon>
-  </ion-avatar>
-  <h2><b>{{name}}</b></h2>
-  <p>{{address}}</p>
-  <ion-note item-end
-    *ngIf="locked">
-    <ion-icon name="lock"
-      color="danger"></ion-icon>
-  </ion-note> -->
-<!-- </ion-item> -->

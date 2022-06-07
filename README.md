@@ -138,7 +138,7 @@ $npx nx generate @nxtend/ionic-angular:page account --project=selectel/mobile --
 - компонент отображения баланса
 
 ```bash
-$npx nx generate @schematics/angular:component account-balance-card --project=selectel-mobile --module=account.module --style=scss --changeDetection=OnPush --displayBlock --path=apps/selectel/mobile/src/app/account/components --prefix=hc-selectel --no-interactive
+$npx nx generate @schematics/angular:component account-balance-card --project=selectel-mobile --module=account.module --style=scss --changeDetection=OnPush --displayBlock --path=apps/selectel/mobile/src/app/account/components --prefix=hc-selectel --no-interactive -d
 ```
 
 ## Отображение баланса

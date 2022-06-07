@@ -10,7 +10,7 @@ export class ServersPageFacadeService {
   serversDataService = inject(ServersDataService);
   servers$: Observable<Server[]> = this.serversDataService
     .getServers()
-    .pipe(publish(), refCount());
+    .pipe(share());
 
   isReady$ = this.servers$.pipe(map((list) => !!list));
 }

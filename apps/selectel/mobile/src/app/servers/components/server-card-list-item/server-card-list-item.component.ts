@@ -6,6 +6,7 @@ import {
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
+import {ServerTag} from '../../models/server-tag.model';
 import { Server } from '../../models/server.model';
 
 @Component({
@@ -22,6 +23,7 @@ export class ServerCardListItemComponent implements OnInit, OnChanges {
   address = '';
   locked = false;
   name = '';
+  tags: ServerTag[] = []
   ngOnInit(): void {}
   ngOnChanges({ server }: SimpleChanges): void {
     if (server && !!server.currentValue) {
@@ -29,6 +31,7 @@ export class ServerCardListItemComponent implements OnInit, OnChanges {
       this.statusColor =
         this.server?.status === 'started' ? 'secondary' : 'danger';
       this.address = this.server?.public_address?.address ?? '';
+      this.tags = this.server?.tags ?? []
     }
   }
 }
