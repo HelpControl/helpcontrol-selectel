@@ -1,7 +1,7 @@
 # NOTE: Docker image для HelpControl: VDS Selectel API
 # NOTE: Stage 1
 
-FROM node:16-alpine as build-stage
+FROM node:16 as build-stage
 # NOTE: Create a Virtual directory inside the docker image
 WORKDIR /monorepo
 
