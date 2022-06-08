@@ -31,7 +31,7 @@ app.get(':endpoint([\\/\\w\\.-]*)', (req, res) => {
   const headers = req.headers;
   const config = {
     headers: {
-      'X-Token': headers['X-Token'] || DEV_X_TOKEN,
+      'X-Token': headers['X-Token'] || headers['x-token'] || DEV_X_TOKEN,
     },
   };
 
