@@ -40,7 +40,7 @@ jobs:
       - name: build
         run: |
           npx nx build selectel-reverse-proxy-api
-          npm run test
+          npx nx test selectel-reverse-proxy-api
   push_to_Docker_Hub:
       # The type of runner that the job will run on
       runs-on: ubuntu-latest
