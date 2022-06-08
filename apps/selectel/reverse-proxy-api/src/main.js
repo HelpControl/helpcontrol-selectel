@@ -45,7 +45,7 @@ app.get(':endpoint([\\/\\w\\.-]*)', (req, res) => {
   // res.send({ message: 'Welcome to reverse-proxy-api!' });
 });
 
-const port = process.env.port || 3334;
+const port = process.env.PORT || 3334;
 const server = app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}/v1`);
 });
